@@ -1,5 +1,0 @@
-package com.devsup.work.repositories;
-
-public interface WorkerRepository2 {
-
-}
