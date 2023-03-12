@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsup.work.entites.Worker;
+import com.devsup.work.entites.User;
 import com.devsup.work.repositories.WorkerRepository;
 
 @RestController
@@ -29,16 +29,16 @@ public class WorkerResource {
 	private WorkerRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<Worker>> findAll() {
-		List<Worker> list = repository.findAll();
+	public ResponseEntity<List<User>> findAll() {
+		List<User> list = repository.findAll();
 
 		return ResponseEntity.ok(list);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Worker> findById(@PathVariable Long id) {
+	public ResponseEntity<User> findById(@PathVariable Long id) {
 		logger.info("PORT = " + env.getProperty("local.server.port"));
-		Optional<Worker> obj = repository.findById(id);
+		Optional<User> obj = repository.findById(id);
 
 		return ResponseEntity.ok(obj.get());
 	}
